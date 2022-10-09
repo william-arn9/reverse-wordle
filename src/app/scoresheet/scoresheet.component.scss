@@ -1,0 +1,33 @@
+.scoresheet-root {
+  height: 300px;
+  width: 140px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  position: absolute;
+  top: 146px;
+  right: 16vw;
+  display: none;
+  @media (max-width: 568px) {
+    display: none;
+  }
+
+  .scoresheet-title {
+    text-align: center;
+    padding: 4px;
+    color: white;
+    font-size: 20px;
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    text-align: center;
+    margin-bottom: 6px;
+
+    &.num {
+      margin-bottom: 18px;
+    }
+  }
+}

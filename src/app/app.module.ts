@@ -8,12 +8,14 @@ import { HeaderComponent } from './header/header.component';
 import { ApiHttpService } from './http/api-http.service';
 import { LetterboardComponent } from './letterboard/letterboard.component';
 import { LocalStorageUtilService } from './utils/local-storage-util-service';
+import { ScoresheetComponent } from './scoresheet/scoresheet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    LetterboardComponent
+    LetterboardComponent,
+    ScoresheetComponent
   ],
   imports: [
     BrowserModule,

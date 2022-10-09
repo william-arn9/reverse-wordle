@@ -1,4 +1,4 @@
-<div class="letterboard-root">
+<section class="letterboard-root">
   <div class="letterboard-wrapper">
     <div class="letterboard" *ngFor="let word of words; let i = index">
       <div class="row">
@@ -10,7 +10,10 @@
       </div>
     </div>
   </div>
-</div>
+</section>
+<section>
+  <app-scoresheet></app-scoresheet>
+</section>
 <div class="controlboard-wrapper">
   <input class="begin-button" [ngClass]="{ 'hidden' : hasBegun }" type="button" role="button" value="Begin" (click)="hasBegun = true;">
   <h2 class="letter" [ngClass]="{ 'hidden' : !hasBegun || hasEnded }">{{letter}}</h2>

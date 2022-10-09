@@ -25,7 +25,7 @@ export class LocalStorageUtilService {
     return false;
   }
 
-  pushGuess(guess: string) {
+  pushGuess(guess: any) {
     let scoreString = localStorage.getItem('guess');
     if(!scoreString) {
       scoreString = '[]';
@@ -43,5 +43,9 @@ export class LocalStorageUtilService {
     let userScore = (JSON.parse(scoreString) as Array<any>);
     
     return userScore;
+  }
+
+  clearGuesses() : void {
+    localStorage.removeItem('guess');
   }
 }
