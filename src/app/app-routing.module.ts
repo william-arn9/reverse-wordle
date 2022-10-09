@@ -4,13 +4,7 @@ import { LetterboardComponent } from './letterboard/letterboard.component';
 
 const routes: Routes = [
   {
-    path: 'reversle', component: LetterboardComponent
-  },
-  {
-    path: '', redirectTo: '/reversle', pathMatch: 'full' //default
-  },
-  {
-    path: '**', redirectTo: '/reversle'
+    path: '', component: LetterboardComponent
   }
 ];
 
