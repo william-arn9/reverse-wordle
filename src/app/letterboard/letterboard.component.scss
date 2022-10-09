@@ -1,0 +1,51 @@
+.letterboard-root {
+  height: 300px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+
+  .letterboard-wrapper {
+    width: 456px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: 568px) {
+      width: 320px;
+    }
+
+    .letterboard {
+      width: 80%;
+
+      @media (max-width: 568px) {
+        width: 100%;
+      }
+
+      .row {
+        padding: 1px 0px;
+        width: 100%;
+      }
+
+      .letter-button {
+        width: 18%;
+        margin: 1%;
+        height: 18%;
+        border-radius: 0px;
+        border: 2px solid grey;
+        height: 65px;
+        background-color: rgb(20, 20, 20);
+        color: white;
+        font-size: 20px;
+        font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+        &.disabled {
+          background-color: rgb(49, 49, 49) !important;
+        }
+        &.winner {
+          background-color: green !important;
+        }
+      }
+    }
+  }
+}
