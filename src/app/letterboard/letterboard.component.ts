@@ -149,6 +149,7 @@ export class LetterboardComponent implements OnInit, AfterViewInit {
     });
   }
 
+  // check if word is real
   checkForSuccess(word: string, wordIndex: number): boolean {
     if(this.words[wordIndex].expected === word) {
       return true;
