@@ -153,7 +153,7 @@ export class LetterboardComponent implements OnInit, AfterViewInit {
     if(this.words[wordIndex].expected === word) {
       return true;
     }
-    this.httpService.get(`https://thatwordleapi.azurewebsites.net/ask/?word=${word}`).subscribe((res: any) => {
+    this.httpService.get(`https://thatwordleapi.azurewebsites.net/ask/?word=${word.toLowerCase()}`).subscribe((res: any) => {
       return (res.Response as boolean);
     },
     (err) => {
