@@ -151,10 +151,16 @@ export class LetterboardComponent implements OnInit, AfterViewInit {
 
   // check if word is real
   checkForSuccess(word: string, wordIndex: number): boolean {
-    if(this.words[wordIndex].expected === word) {
+    const wIndex = wordIndex;
+    if(this.words[wIndex].expected === word) {
       return true;
     }
     this.httpService.get(`https://thatwordleapi.azurewebsites.net/ask/?word=${word.toLowerCase()}`).subscribe((res: any) => {
+      if(res.Response) {
+        this.localStorageUtilService.pushGuess({won: true, guess: AppUtils.buildString(this.words[wIndex].letters)});
+        this.score++;
+      }
+      this.words[wIndex].won = res.Response;
       return (res.Response as boolean);
     },
     (err) => {
