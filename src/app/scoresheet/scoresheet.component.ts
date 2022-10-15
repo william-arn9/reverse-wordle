@@ -1,18 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, AfterContentChecked } from '@angular/core';
+import { LocalStorageUtilService } from '../utils/local-storage-util-service';
 
 @Component({
   selector: 'app-scoresheet',
   templateUrl: './scoresheet.component.html',
   styleUrls: ['./scoresheet.component.scss']
 })
-export class ScoresheetComponent implements OnInit {
+export class ScoresheetComponent implements OnInit, AfterContentChecked {
 
-  totalGames = 0;
-  averageScore = 0;
+  @Input() hasEnded = false;
+  totalGames: string|number;
+  averageScore: string|number;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private readonly localStorageService: LocalStorageUtilService) {
+    this.averageScore = 0;
+    this.totalGames = 0;
   }
 
+  ngOnInit(): void {
+    this.averageScore = this.localStorageService.averageScores();
+    this.totalGames = this.localStorageService.getTotalGames();
+  }
+
+  ngAfterContentChecked(): void {
+    if(this.hasEnded) {
+    this.averageScore = this.localStorageService.averageScores();
+    this.totalGames = this.localStorageService.getTotalGames();
+    }
+  }
 }

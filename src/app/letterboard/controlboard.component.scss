@@ -5,6 +5,9 @@
   justify-content: center;
   padding: 40px 0px;
   text-align: center;
+  @media (max-width: 568px) {
+    margin-top: 24px; 
+  }
 
   .begin-button {
     width: 160px;

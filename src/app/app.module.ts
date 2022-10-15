@@ -9,6 +9,7 @@ import { ApiHttpService } from './http/api-http.service';
 import { LetterboardComponent } from './letterboard/letterboard.component';
 import { LocalStorageUtilService } from './utils/local-storage-util-service';
 import { ScoresheetComponent } from './scoresheet/scoresheet.component';
+import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ScoresheetComponent } from './scoresheet/scoresheet.component';
     HttpClientModule
   ],
   providers: [ ApiHttpService, LocalStorageUtilService ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
+  schemas: [ ]
 })
 export class AppModule { }

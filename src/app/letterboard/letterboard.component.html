@@ -1,6 +1,9 @@
 <section class="letterboard-root">
+<section>
+  <app-scoresheet [hasEnded]="gameHasEnded"></app-scoresheet>
+</section>
   <div class="letterboard-wrapper">
-    <div class="letterboard" *ngFor="let word of words; let i = index">
+    <div class="letterboard" *ngFor="let word of userGuessWords; let i = index">
       <div class="row">
         <input class="letter-button" [id]="'word' + i + 0" [ngClass]="{ 'winner' : word.won, 'disabled' : !word.enabled }" type="button" role="button" (click)="placeLetter(i, $event, 0)">
         <input class="letter-button" [id]="'word' + i + 1" [ngClass]="{ 'winner' : word.won, 'disabled' : !word.enabled }" type="button" role="button" (click)="placeLetter(i, $event, 1)">
@@ -11,13 +14,10 @@
     </div>
   </div>
 </section>
-<section>
-  <app-scoresheet></app-scoresheet>
-</section>
 <div class="controlboard-wrapper">
-  <input class="begin-button" [ngClass]="{ 'hidden' : hasBegun }" type="button" role="button" value="Begin" (click)="hasBegun = true;">
-  <h2 class="letter" [ngClass]="{ 'hidden' : !hasBegun || hasEnded }">{{letter}}</h2>
-  <div class="end-game-wrapper" [ngClass]="{ 'hidden' : !hasEnded }">
+  <input class="begin-button" [ngClass]="{ 'hidden' : gameHasBegun }" type="button" role="button" value="Begin" (click)="gameHasBegun = true;">
+  <h2 class="letter" [ngClass]="{ 'hidden' : !gameHasBegun || gameHasEnded }">{{letter}}</h2>
+  <div class="end-game-wrapper" [ngClass]="{ 'hidden' : !gameHasEnded }">
     <h3 class="end-game">You scored {{score}}/3 today.</h3>
     <h3 class="end-game">{{statements[score]}}</h3>
   </div>
